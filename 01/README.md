@@ -37,3 +37,39 @@
       );
     </script>
 ```
+
+## Function components
+
+```javascript
+    <script type="text/babel">
+
+      const Hello = () =>
+        <div className="heading">
+          <h1>Welcome to React</h1>
+        </div>
+
+      ReactDOM.render(
+        <Hello />,
+        document.getElementById("root")
+      );
+    </script>
+```
+
+## Props object
+
+Provides data for function components
+
+```javascript
+  <script type="text/babel">
+    const Hello = (props) => {
+        console.log(props);
+        return (
+        <div className="heading">
+          <h1>Welcome to {props.library}</h1>
+          <p>{props.message}</p>
+        </div>
+      )}
+  </script>
+```
+
+**React components** are *functions* that takes in some *data* as an argument and returns *React elements* or *a user interface*.
