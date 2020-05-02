@@ -4,20 +4,13 @@
     <title>React sample</title>
     <script src="https://unpkg.com/react@16.13.1/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="text/javascript">
+    <script type="text/babel">
       ReactDOM.render(
-        React.createElement(
-          "div", 
-          null,
-          React.createElement(
-            "h1",
-            null,
-            "Hello again!"
-          )
-        ),
+        <h1>Hello from JSX!</h1>,
         document.getElementById("root")
       );
     </script>
