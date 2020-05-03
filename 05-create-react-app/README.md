@@ -15,3 +15,15 @@ create-react-app lake-app
 ```
 
 Then you will have react project template with required dependencies such as react.js, react-dom.js, babel.js, webpack.js, etc.
+
+To install dependencies navigate to the project folder *lake-app* then run:
+
+```powershell
+npm install
+```
+
+to run the project:
+
+```powershell
+npm start
+```
