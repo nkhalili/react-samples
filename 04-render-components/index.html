@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React sample</title>
+    <script src="https://unpkg.com/react@16.13.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+      .heading {
+        color: red;
+      }
+
+    </style>
+
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+      const lakeList = [
+        "Lake 1",
+        "Lake 2",
+        "Lake 3"
+      ];
+
+      const App = ({lakes}) => (
+        <ul>
+          {lakes.map((lake, i) => 
+            <li key={i}>{lake}</li>
+          )}
+        </ul>
+      );
+
+      ReactDOM.render(
+        <App lakes={lakeList} />,
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+</html>
