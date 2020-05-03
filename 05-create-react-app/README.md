@@ -27,3 +27,20 @@ to run the project:
 ```powershell
 npm start
 ```
+
+To publish your application for production use (optimize app version):
+
+```powershell
+npm run build
+```
+
+To run your production application, run:
+
+```powershell
+npm install -g serve
+serve -s build
+```
+
+serve is a static server to serve our application locally.
+
+Also check out [react documentation](https://reactjs.org/)
