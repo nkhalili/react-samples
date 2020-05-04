@@ -18,13 +18,22 @@ const Book = ({title, author, pages}) => {
 }
 
 class Library extends Component {
+  constructor(props){
+    super(props) // will create a new instance of this class
+    this.state = { // Adding state value
+      open: true
+    } 
+  }
   render() {
     const { books } = this.props;
     return (
       <div>
+        {/* Using state value */}
+        <h1>The library is {this.state.open ? 'open' : 'closed'}</h1>
         {books.map(
-          book => 
+          (book, i) => 
             <Book 
+              key={i}
               title={book.title}
               author={book.author}
               pages={book.pages} />

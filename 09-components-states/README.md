@@ -11,8 +11,8 @@ Instead of getting books property from *props* like this:
             return (
             <div>
                 {books.map(
-                book => 
-                    <Book 
+                book =>
+                    <Book
                     title={book.title}
                     author={book.author}
                     pages={book.pages} />
@@ -32,8 +32,8 @@ You can use destructor like this:
             return (
             <div>
                 {books.map(
-                book => 
-                    <Book 
+                book =>
+                    <Book
                     title={book.title}
                     author={book.author}
                     pages={book.pages} />
@@ -42,4 +42,38 @@ You can use destructor like this:
             )
         }
     }
+```
+
+## Adding local state to the component
+
+One way to add local state to the component is to use **constructor method**.
+
+- *State* is an object with different keys similar to *props*.
+
+```javascript
+class Library extends Component {
+  constructor(props){
+    super(props) // will create a new instance of this class
+    this.state = { // Adding state value
+      open: true
+    }
+  }
+  render() {
+    const { books } = this.props;
+    return (
+      <div>
+        {/* Using state value */}
+        <h1>The library is {this.state.open ? 'open' : 'closed'}</h1>
+        {books.map(
+          (book, i) =>
+            <Book
+              key={i}
+              title={book.title}
+              author={book.author}
+              pages={book.pages} />
+        )}
+      </div>
+    )
+  }
+}
 ```
