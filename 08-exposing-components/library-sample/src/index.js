@@ -11,8 +11,9 @@ let bookList = [
 const Library = ({ books }) =>
   <section>
     {books.map(
-      book => 
-        <Book 
+      (book, i) => 
+        <Book
+          key={i}
           title={book.title} 
           author={book.author} 
           pages={book.pages}/>
