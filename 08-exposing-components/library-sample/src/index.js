@@ -1,11 +1,22 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-const Library = () =>
+let bookList = [
+  {"title": "Book 4", "author" : "Author 4", "pages" : 500},
+  {"title": "Book 1", "author" : "Author 1", "pages" : 150},
+  {"title": "Book 2", "author" : "Author 2", "pages" : 400},
+  {"title": "Book 3", "author" : "Author 3", "pages" : 100},
+]
+
+const Library = ({ books }) =>
   <section>
-    <Book title="Book 1" author="Author 1" pages={100}/>
-    <Book title="Book 2" author="Author 2" pages={400}/>
-    <Book title="Book 3" author="Author 3" pages={250}/>
+    {books.map(
+      book => 
+        <Book 
+          title={book.title} 
+          author={book.author} 
+          pages={book.pages}/>
+    )}
   </section>
 
 const Book = ({title, author, pages}) => {
@@ -19,6 +30,6 @@ const Book = ({title, author, pages}) => {
 }
 
 render(
-  <Library />,
+  <Library books={bookList}/>,
   document.getElementById('root')
 );

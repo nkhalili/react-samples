@@ -28,3 +28,18 @@
     document.getElementById('root')
     );
 ```
+
+## Rendering child components - .map() usage
+
+```javascript
+    const Library = ({ books }) =>
+    <section>
+        {books.map(
+        book => 
+            <Book 
+            title={book.title} 
+            author={book.author} 
+            pages={book.pages}/>
+        )}
+    </section>
+```
