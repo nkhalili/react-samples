@@ -102,6 +102,16 @@ class Library extends Component {
   }
 ```
 
+2.1. You can also use arrow function to simplify this operation. You don't have to set it in constructor, if you are using arrow function in your function declaration:
+
+```javascript
+  toggleOpenClosed = () => {
+      this.setState({
+        open: !this.state.open
+      })
+    }
+```
+
 setState is **asynchronous**, if you are relying on previous state you need to use a **callback function** instead of using objects like [2].
 
 ```javascript
