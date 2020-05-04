@@ -23,6 +23,12 @@ class Library extends Component {
     this.state = { // Adding state value
       open: true
     } 
+    this.toggleOpenClosed = this.toggleOpenClosed.bind(this)
+  }
+  toggleOpenClosed() {
+    this.setState({
+      open: !this.state.open
+    })
   }
   render() {
     const { books } = this.props;
@@ -30,6 +36,7 @@ class Library extends Component {
       <div>
         {/* Using state value */}
         <h1>The library is {this.state.open ? 'open' : 'closed'}</h1>
+        <button onClick={this.toggleOpenClosed}>toggle state</button>
         {books.map(
           (book, i) => 
             <Book 

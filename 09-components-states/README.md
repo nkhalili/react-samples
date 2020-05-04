@@ -77,3 +77,27 @@ class Library extends Component {
   }
 }
 ```
+
+## Set state
+
+To change the state via setState(), use this code:
+
+```javascript
+  toggleOpenClosed() {
+      this.setState({
+        open: !this.state.open
+      })
+    }
+```
+
+Don't forget to bind your method through the constructor:
+
+```javascript
+  constructor(props){
+    super(props) // will create a new instance of this class
+    this.state = { // Adding state value
+      open: true
+    }
+    this.toggleOpenClosed = this.toggleOpenClosed.bind(this)
+  }
+```
