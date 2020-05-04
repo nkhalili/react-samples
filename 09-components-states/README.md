@@ -80,7 +80,7 @@ class Library extends Component {
 
 ## Set state
 
-To change the state via setState(), use this code:
+1.To change the state via setState(), use this code:
 
 ```javascript
   toggleOpenClosed() {
@@ -90,14 +90,24 @@ To change the state via setState(), use this code:
     }
 ```
 
-Don't forget to bind your method through the constructor:
+2.Don't forget to bind your method through the constructor:
 
 ```javascript
   constructor(props){
-    super(props) // will create a new instance of this class
-    this.state = { // Adding state value
+    super(props)
+    this.state = {
       open: true
     }
     this.toggleOpenClosed = this.toggleOpenClosed.bind(this)
+  }
+```
+
+setState is **asynchronous**, if you are relying on previous state you need to use a **callback function** instead of using objects like [2].
+
+```javascript
+  toggleOpenClosed() {
+    this.setState(prevState => ({
+      open: !prevState.open
+    }))
   }
 ```

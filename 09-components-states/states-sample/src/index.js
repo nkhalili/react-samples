@@ -26,9 +26,9 @@ class Library extends Component {
     this.toggleOpenClosed = this.toggleOpenClosed.bind(this)
   }
   toggleOpenClosed() {
-    this.setState({
-      open: !this.state.open
-    })
+    this.setState(prevState => ({
+      open: !prevState.open
+    }))
   }
   render() {
     const { books } = this.props;
