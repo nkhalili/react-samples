@@ -30,6 +30,12 @@ const NotHiring = () =>
 
 class Library extends Component {
 
+  static defaultProps = {
+    books: [
+      {"title": "Default Book", "author": "Default Author", "pages": -1}
+    ]
+  }
+
   state = { 
     open: true,
     freeBookmark: true,
@@ -86,6 +92,6 @@ class Library extends Component {
 }
 
 render(
-  <Library books={bookList} />,
+  <Library />,
   document.getElementById('root')
 );
