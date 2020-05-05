@@ -26,3 +26,38 @@ To set default values for properties to prevent functionality breaks.
     )
     }
 ```
+
+## Prop types
+
+To declare props types for components to make sure the right types are used in them. It adds warnings on console (helpful for debugging):
+
+```console
+VM581:37 Warning: Failed prop type: Invalid prop `books` of type `object` supplied to `Library`, expected `array`.
+```
+
+1. Install package
+
+```powershell
+    npm install prop-types --save
+```
+
+2. Import package
+
+```javascript
+    import PropTypes from 'prop-types'
+```
+
+3. Setup the prop types
+
+```javascript
+Library.propTypes = {
+  books: PropTypes.array
+}
+
+Book.propTypes = {
+  title: PropTypes.string,
+  author: PropTypes.string,
+  pages: PropTypes.number,
+  freeBookmark: PropTypes.bool,
+}
+```
