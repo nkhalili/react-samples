@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 
 const bookList = [
-  {"title" : "Book 1", "author" : "Author 1", "pages" : 100},
+  {"title" : "Book 1"},
   {"title" : "Book 2", "author" : "Author 2", "pages" : 150},
   {"title" : "Book 3", "author" : "Author 3", "pages" : 500}
 ]
 
-const Book = ({title, author, pages, freeBookmark}) => {
+const Book = ({title="default title", author="default author", pages=-1, freeBookmark}) => {
   return (
     <div>
       <h1>Title: {title}</h1>
@@ -92,6 +92,6 @@ class Library extends Component {
 }
 
 render(
-  <Library />,
+  <Library books={bookList}/>,
   document.getElementById('root')
 );
