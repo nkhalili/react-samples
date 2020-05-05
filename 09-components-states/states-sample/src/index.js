@@ -7,19 +7,23 @@ const bookList = [
   {"title" : "Book 3", "author" : "Author 3", "pages" : 500}
 ]
 
-const Book = ({title, author, pages}) => {
+const Book = ({title, author, pages, freeBookmark}) => {
   return (
     <div>
       <h1>Title: {title}</h1>
       <h3>Author: {author}</h3>
       <p>Pages: {pages}</p>
+      <p>Free Bookmark today: {freeBookmark ? 'yes! :)' : 'no! :('}</p>
     </div>
   )
 }
 
 class Library extends Component {
 
-  state = { open: false }
+  state = { 
+    open: true,
+    freeBookmark: true 
+  }
 
   toggleOpenClosed = () => {
     this.setState(prevState => ({
@@ -39,7 +43,8 @@ class Library extends Component {
               key={i}
               title={book.title}
               author={book.author}
-              pages={book.pages} />
+              pages={book.pages}
+              freeBookmark={this.state.freeBookmark} />
         )}
       </div>
     )

@@ -121,3 +121,42 @@ setState is **asynchronous**, if you are relying on previous state you need to u
     }))
   }
 ```
+
+**Rule of thumb:** Keep the state in the root of the tree. (Lifting State Up)
+Your root component (e.g. Library) should hold all the state variables and pass them to the children components (e.g. Book).
+
+```javascript
+  const Book = ({title, author, pages, freeBookmark}) => {
+    return (
+      <div>
+        <h1>Title: {title}</h1>
+        <h3>Author: {author}</h3>
+        <p>Pages: {pages}</p>
+        {/* Using the state variable from props */}
+        <p>Free Bookmark today: {freeBookmark ? 'yes! :)' : 'no! :('}</p>
+      </div>
+    )
+  }
+
+  class Library extends Component {
+    ...
+    render() {
+      const { books } = this.props;
+      return (
+        <div>
+          <h1>The library is {this.state.open ? 'open' : 'closed'}</h1>
+          <button onClick={this.toggleOpenClosed}>toggle state</button>
+          {books.map(
+            (book, i) =>
+              <Book
+                key={i}
+                title={book.title}
+                author={book.author}
+                pages={book.pages}
+                freeBookmark={this.state.freeBookmark} /> // passing the state through props
+          )}
+        </div>
+      )
+    }
+  }
+```
